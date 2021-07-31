@@ -1,0 +1,17 @@
+Make math equation string format to list using python 
+For example 
+```
+equation = "8x + 3y = 55"
+convert(equation)
+```
+output will be **[8, 3, 55]**
+
+
+another example
+```
+equation = "x - y = 15"
+convert(equation)
+```
+
+output will be **[1, -1, 15]**
+

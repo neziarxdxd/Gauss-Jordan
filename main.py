@@ -1,6 +1,6 @@
 import numpy as np
 
-#ingresamos tamaño de la matriz
+
 n = int(input("Number of variables: "))
 matrix = array = np.arange(n*(n+1)*1.0).reshape(n,n+1)
 solution = array = np.arange(n).reshape(n,1)
@@ -8,7 +8,7 @@ solution = array = np.arange(n).reshape(n,1)
 #reading data from matrix
 for i in range(0,n):
   for j in range(0,n+1):
-    matrix[i,j] = float (input("ingrese matriz["+ str(i) + "," + str(j) + "]"))
+    matrix[i,j] = float (input("Cell: ["+ str(i) + "," + str(j) + "] "))
 print(matrix)
 
 #solution of equations

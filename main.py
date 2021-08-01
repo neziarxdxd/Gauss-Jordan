@@ -1,28 +1,28 @@
 import numpy as np
 
 #ingresamos tamaño de la matriz
-n = int(input("ingrese n: "))
-matriz = array = np.arange(n*(n+1)*1.0).reshape(n,n+1)
-solucion = array = np.arange(n).reshape(n,1)
+n = int(input("Number of variables: "))
+matrix = array = np.arange(n*(n+1)*1.0).reshape(n,n+1)
+solution = array = np.arange(n).reshape(n,1)
 
-#lectura de datos de la matriz
+#reading data from matrix
 for i in range(0,n):
   for j in range(0,n+1):
-    matriz[i,j] = float (input("ingrese matriz["+str(i)+","+str(j)+"]"))
-print(matriz)
+    matrix[i,j] = float (input("ingrese matriz["+ str(i) + "," + str(j) + "]"))
+print(matrix)
 
-#solucion de las ecuaciones
+#solution of equations
 for i in range(0,n):
-  if (matriz[i,i]== 0):
-    print("Error matemático",i)
+  if (matrix[i,i]== 0):
+    print("Math error kindly check your input",i)
     break
   for j in range(0,n):
     if (i!=j):
-      ratio = matriz[j,i] / matriz[i,i]
+      ratio = matrix[j,i] / matrix[i,i]
       for k in range(0,n+1):
-        matriz[j,k]=matriz[j,k] - ratio*matriz[i,k]
+        matrix[j,k]=matrix[j,k] - ratio*matrix[i,k]
 
-#mostramos las soluciones
+#show the solutions
 for i in range(0,n):
-  solucion[i]= matriz[i,n] / matriz[i,i]
-  print(matriz[i,n] / matriz[i,i])
+  solution[i]= matrix[i,n] / matrix[i,i]
+  print(matrix[i,n] / matrix[i,i])

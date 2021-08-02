@@ -23,6 +23,10 @@ for i in range(0,n):
         matrix[j,k]=matrix[j,k] - ratio*matrix[i,k]
 
 #show the solutions
-for i in range(0,n):
-  solution[i]= matrix[i,n] / matrix[i,i]
-  print(matrix[i,n] / matrix[i,i])
+
+  try:
+    for i in range(0,n):
+      solution[i]= matrix[i,n] / matrix[i,i]
+      print(matrix[i,n] / matrix[i,i])
+  except:
+    print("No solution or Infinite and many solution")

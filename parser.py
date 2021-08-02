@@ -1,12 +1,9 @@
 import re
 equation = []
-
-x = lambda s:([0,]+[int(x or '1-i')for i,x in enumerate(s.split('x'))])[-2:]
-lines = ["x+1y+0 =5", "1x-1y+0", "1x+0y-3", "0x+1y-0.5","2x+3y=5"]
+lines = ["1x+1y+0", "1x-1y+0", "1x+0y-3", "0x+1y-0.52=-998"]
 for i in lines:
-    z = re.findall(r'[\d\.\-\+\]+', i)
-    
-    equation.append(z)
+    z = re.findall(r'[\d\.\-\+]+', i)
+    print(z)
 
 print(equation)
 

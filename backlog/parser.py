@@ -3,7 +3,8 @@ equation = []
 lines = ["1x+1y+0", "1x-1y+0", "1x+0y-3", "0x+1y-0.52=-998"]
 for i in lines:
     z = re.findall(r'[\d\.\-\+]+', i)
-    print(z)
+    number_list = list(map(float,z))
+    equation.append(number_list)
 
 print(equation)
 

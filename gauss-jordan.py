@@ -44,9 +44,10 @@ solution = array = np.arange(number_variables).reshape(number_variables,1)
 for i in range(0,number_variables):
   for j in range(0,number_variables+1):
     matrix[i,j] = list_matrix[i][j]
+    print(matrix)
     
-print(matrix)
-
+print("MATRIX: ",matrix)
+print("=============")
 #solution of equations
 for i in range(0,number_variables):
   if (matrix[i,i]== 0):
@@ -55,15 +56,19 @@ for i in range(0,number_variables):
   for j in range(0,number_variables):
     if (i!=j):
       ratio = matrix[j,i] / matrix[i,i]
+      print("SOLUTION: ",matrix)
 
       for k in range(0,number_variables+1):
-        matrix[j,k]=matrix[j,k] - ratio*matrix[i,k]
+        print(matrix[j,k], "-", ratio*matrix[i,k])
+        matrix[j,k]=matrix[j,k] - ratio*matrix[i,k]        
+        print(matrix)
         
 solution_sets=[]
 #show the solutions
 print("Solution set: ")
 for i in range(0,number_variables):
   solved = matrix[i,number_variables] / matrix[i,i]
+  print("SOLVED:",solved)
   solution[i]= solved
   solved_round = round(solved,6)
   solution_sets.append(solved_round)
@@ -72,8 +77,7 @@ for i in range(0,number_variables):
 # checking 
 
 for sets in list_matrix:
-    solve = sets[0:number_variables]
-    
+    solve = sets[0:number_variables]    
     check = sets[-1]
     print("Equation",solve,check)
     distributed= [solution_sets[i] * sets[i] for i in range(len(solution_sets))]

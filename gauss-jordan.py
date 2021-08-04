@@ -75,11 +75,10 @@ solution_sets=[]
 print("Solution set: ")
 for i in range(0,number_variables):
   solved = matrix[i,number_variables] / matrix[i,i]  
-  
+  print(f"Equation #{i+1} {matrix[i,number_variables]}/{ matrix[i,i] } = {solved}")
   solution[i]= solved
   solved_round = round(solved,6)
   solution_sets.append(solved_round)
-  print(f"variable {i+1} {matrix[i,number_variables]}/{ matrix[i,i] } = {solved_round}")
   print(solved_round)
 
 # checking

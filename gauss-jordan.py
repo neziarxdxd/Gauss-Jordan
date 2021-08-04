@@ -14,7 +14,10 @@ def equationToMatrix(array):
     except:
       print('You should add "1" coeffecient')
       exit()
-    
+def matrix_parse(matrix):  
+  for row in range(len(matrix)):    
+    print("|",
+    " ".join(str(i).ljust(20) for i in matrix[row][:-1]),"|",f"x{row}", "|",matrix[row][-1])    
     
 list_matrix = []
 number_variables = int(input("Enter number of variables: "))
@@ -43,8 +46,7 @@ solution = array = np.arange(number_variables).reshape(number_variables,1)
 #reading data from matrix
 for i in range(0,number_variables):
   for j in range(0,number_variables+1):
-    matrix[i,j] = list_matrix[i][j]
-    print(matrix)
+    matrix[i,j] = list_matrix[i][j]    
     
 print("MATRIX: ",matrix)
 print("=============")
@@ -56,26 +58,32 @@ for i in range(0,number_variables):
   for j in range(0,number_variables):
     if (i!=j):
       ratio = matrix[j,i] / matrix[i,i]
-      print("SOLUTION: ",matrix)
+      print(f"ratio: {matrix[j,i]} /{matrix[i,i]} = {ratio}")
 
       for k in range(0,number_variables+1):
-        print(matrix[j,k], "-", ratio*matrix[i,k])
-        matrix[j,k]=matrix[j,k] - ratio*matrix[i,k]        
-        print(matrix)
+        solve_matrix = matrix[j,k] - ratio*matrix[i,k] 
+        print(f"cell: {matrix[j,k]} - {ratio}*{matrix[i,k]} = {solve_matrix}")
+        matrix[j,k]= solve_matrix      
+        # printing of matrix how it was solved
+        listMatrix = matrix.tolist()
+        for row in range(len(listMatrix)):    
+          print("|"," ".join(str(i).ljust(20) for i in listMatrix[row][:-1]),"|",f"x{row}", "|",listMatrix[row][-1]) 
+        
         
 solution_sets=[]
 #show the solutions
 print("Solution set: ")
 for i in range(0,number_variables):
-  solved = matrix[i,number_variables] / matrix[i,i]
-  print("SOLVED:",solved)
+  solved = matrix[i,number_variables] / matrix[i,i]  
+  
   solution[i]= solved
   solved_round = round(solved,6)
   solution_sets.append(solved_round)
+  print(f"variable {i+1} {matrix[i,number_variables]}/{ matrix[i,i] } = {solved_round}")
   print(solved_round)
 
-# checking 
-
+# checking
+print("##### CHECKING OF EQUATIONS ####")
 for sets in list_matrix:
     solve = sets[0:number_variables]    
     check = sets[-1]

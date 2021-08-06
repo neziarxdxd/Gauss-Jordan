@@ -1,5 +1,5 @@
 # Gauss-Jordan
-
+```
 ## two inputs
 
 2
